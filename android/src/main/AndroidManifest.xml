@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="app.spood.android">
+    package="app.spood">
 
     <application
         android:allowBackup="false"
@@ -15,4 +15,4 @@
             </intent-filter>
         </activity>
     </application>
-</manifest> 
+</manifest>
