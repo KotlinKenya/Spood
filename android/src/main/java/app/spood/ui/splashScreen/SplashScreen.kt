@@ -1,6 +1,5 @@
-package app.spood
+package app.spood.ui.splashScreen
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -13,19 +12,26 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import app.spood.R
+import app.spood.Screen
 import app.spood.ui.theme.white
 import app.spood.ui.theme.yellow
 
 @Preview(showBackground = true)
 @Composable
 fun SplashScreenPreview() {
-    SplashScreen("Hello ")
+    SplashScreen(rememberNavController())
 }
 
 @Composable
-fun SplashScreen(message: String) {
+fun SplashScreen(navController: NavHostController) {
     val goToAuthenticate: () -> Unit = {
-        Log.e("SplashScreen", "Navigate to authentication")
+        navController.navigate(Screen.SignUp.route) {
+            popUpTo(navController.graph.findStartDestination().id) { inclusive = true }
+        }
     }
 
     Scaffold(

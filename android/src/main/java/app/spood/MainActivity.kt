@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Scaffold
+import androidx.navigation.compose.rememberNavController
 import app.spood.ui.theme.SpoodTheme
 
 class MainActivity : ComponentActivity() {
@@ -12,14 +13,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SpoodTheme {
+                val navController = rememberNavController()
                 Scaffold(
-                    content = {SplashScreen(greet())}
+                    content = { SpoodNavigation(navController) }
                 )
             }
         }
-    }
-
-    private fun greet(): String {
-        return Greeting().greeting()
     }
 }

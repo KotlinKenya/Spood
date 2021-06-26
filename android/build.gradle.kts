@@ -34,6 +34,7 @@ dependencies {
     implementation("com.google.android.material:material:1.3.0")
 
     implementation("androidx.activity:activity-compose:1.3.0-beta02")
+    implementation("androidx.navigation:navigation-compose:2.4.0-alpha03")
     implementation("androidx.compose.ui:ui:${rootProject.extra["compose_version"]}")
     implementation("androidx.compose.material:material:${rootProject.extra["compose_version"]}")
     implementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
