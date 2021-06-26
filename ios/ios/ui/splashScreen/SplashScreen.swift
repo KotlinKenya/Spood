@@ -20,7 +20,7 @@ struct SplashScreen: View {
             content( goToAuthenticate: authenticate)
             floatingButton( goToAuthenticate: authenticate)
         }
-        .background(Color("yellow"))
+        .background(Color("yellow").ignoresSafeArea())
         .navigationBarHidden(true)
     }
     
@@ -28,11 +28,24 @@ struct SplashScreen: View {
     func content(goToAuthenticate: @escaping ()  -> Void ) -> some View {
         VStack{
             Spacer()
-            Button( action:  goToAuthenticate, label: { Image("logo") } )
+            Button(
+                action:  goToAuthenticate,
+                label: {
+                    Image("logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                        .padding(.horizontal, 120)
+                }
+            )
             Spacer()
             Image("banner")
             Spacer()
             Image("tagline")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .padding(.horizontal, 50.0)
             Spacer()
         }
     }
@@ -52,8 +65,8 @@ struct SplashScreen: View {
                     }
                 )
                 .padding()
-                .shadow(color: .black.opacity(0.3), radius: 3, x: 3, y: 3)
-            }
+                .shadow(radius: 3)
+             }
         }
     }
 }
