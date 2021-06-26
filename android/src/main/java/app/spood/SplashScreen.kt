@@ -25,7 +25,7 @@ fun SplashScreenPreview() {
 @Composable
 fun SplashScreen(message: String) {
     val goToAuthenticate: () -> Unit = {
-        Log.e("qwertyu", "ertyumo")
+        Log.e("SplashScreen", "Navigate to authentication")
     }
 
     Scaffold(
