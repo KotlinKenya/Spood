@@ -52,6 +52,10 @@ struct ContentView: View {
                 .background(Color("white"))
                 .cornerRadius(28)
                 .padding([.bottom, .trailing], 20)
+                .shadow(
+                    color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/.opacity(0.3),
+                    radius: 3, x: 3, y: 3
+                )
             }
         }
     }
