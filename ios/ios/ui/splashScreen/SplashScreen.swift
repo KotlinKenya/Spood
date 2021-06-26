@@ -1,32 +1,34 @@
 import SwiftUI
 import common
 
-struct ContentView_Previews: PreviewProvider {
+struct SplashScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SplashScreen()
     }
 }
 
-struct ContentView: View {
+struct SplashScreen: View {
+    
+    @State private var clickedSignUpLink = false
     
     var body: some View {
-        let authenticate: () -> Void = { print("Navigate to authentication") }
+        
+        let authenticate: () -> Void = { self.clickedSignUpLink = true }
         
         ZStack{
+            NavigationLink( destination: SignUp(), isActive: $clickedSignUpLink ){ EmptyView() }
             content( goToAuthenticate: authenticate)
             floatingButton( goToAuthenticate: authenticate)
         }
         .background(Color("yellow"))
+        .navigationBarHidden(true)
     }
     
     
     func content(goToAuthenticate: @escaping ()  -> Void ) -> some View {
         VStack{
             Spacer()
-            Button(
-                action:  goToAuthenticate,
-                label: { Image("logo") }
-            )
+            Button( action:  goToAuthenticate, label: { Image("logo") } )
             Spacer()
             Image("banner")
             Spacer()
@@ -44,18 +46,13 @@ struct ContentView: View {
                     action: goToAuthenticate,
                     label: {
                         Image("ic_arrow_right")
-                            .frame(width: 12, height: 12)
-                            .foregroundColor(Color("grey"))
+                            .frame(width: 56, height: 56)
+                            .background(Color("white"))
+                            .cornerRadius(28)
                     }
                 )
-                .frame(width: 56, height: 56)
-                .background(Color("white"))
-                .cornerRadius(28)
-                .padding([.bottom, .trailing], 20)
-                .shadow(
-                    color: .black.opacity(0.3),
-                    radius: 3, x: 3, y: 3
-                )
+                .padding()
+                .shadow(color: .black.opacity(0.3), radius: 3, x: 3, y: 3)
             }
         }
     }

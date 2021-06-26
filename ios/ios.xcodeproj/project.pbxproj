@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F4ADD0E26873FCB0033BB35 /* SpoodNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4ADD0D26873FCB0033BB35 /* SpoodNavigation.swift */; };
+		0F4ADD11268743650033BB35 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4ADD10268743650033BB35 /* SplashScreen.swift */; };
 		0F6519B02686A756000CE541 /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6519AF2686A756000CE541 /* Resources.xcassets */; };
+		0FE1CC912687493500FBE3D0 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CC902687493500FBE3D0 /* SignUp.swift */; };
+		0FE1CC9326874B6F00FBE3D0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CC9226874B6F00FBE3D0 /* SignUpViewModel.swift */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,10 +29,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F4ADD0D26873FCB0033BB35 /* SpoodNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoodNavigation.swift; sourceTree = "<group>"; };
+		0F4ADD10268743650033BB35 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		0F6519AF2686A756000CE541 /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
+		0FE1CC902687493500FBE3D0 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		0FE1CC9226874B6F00FBE3D0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7555FFB1242A642300829871 /* common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = common.framework; path = "../common/build/xcode-frameworks/common.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,6 +51,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F4ADD0F2687419E0033BB35 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				0FE1CC8F268748F500FBE3D0 /* signUp */,
+				0FE1CC8E268748B800FBE3D0 /* splashScreen */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		0FE1CC8E268748B800FBE3D0 /* splashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0F4ADD10268743650033BB35 /* SplashScreen.swift */,
+			);
+			path = splashScreen;
+			sourceTree = "<group>";
+		};
+		0FE1CC8F268748F500FBE3D0 /* signUp */ = {
+			isa = PBXGroup;
+			children = (
+				0FE1CC902687493500FBE3D0 /* SignUp.swift */,
+				0FE1CC9226874B6F00FBE3D0 /* SignUpViewModel.swift */,
+			);
+			path = signUp;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -65,9 +97,10 @@
 		7555FF7D242A565900829871 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				7555FF82242A565900829871 /* ContentView.swift */,
+				0F4ADD0F2687419E0033BB35 /* ui */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
+				0F4ADD0D26873FCB0033BB35 /* SpoodNavigation.swift */,
 				0F6519AF2686A756000CE541 /* Resources.xcassets */,
 			);
 			path = ios;
@@ -172,8 +205,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4ADD11268743650033BB35 /* SplashScreen.swift in Sources */,
+				0FE1CC912687493500FBE3D0 /* SignUp.swift in Sources */,
+				0FE1CC9326874B6F00FBE3D0 /* SignUpViewModel.swift in Sources */,
+				0F4ADD0E26873FCB0033BB35 /* SpoodNavigation.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
