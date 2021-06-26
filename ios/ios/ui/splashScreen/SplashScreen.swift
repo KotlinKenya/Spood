@@ -9,27 +9,28 @@ struct SplashScreen_Previews: PreviewProvider {
 
 struct SplashScreen: View {
     
-    @State private var clickedSignUpLink = false
+    @StateObject var viewModel : SplashScreenViewModel
+    
+    init(viewModel: SplashScreenViewModel = .init()) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
-        
-        let authenticate: () -> Void = { self.clickedSignUpLink = true }
-        
         ZStack{
-            NavigationLink( destination: SignUp(), isActive: $clickedSignUpLink ){ EmptyView() }
-            content( goToAuthenticate: authenticate)
-            floatingButton( goToAuthenticate: authenticate)
+            NavigationLink( destination: SignUp(), isActive: $viewModel.shouldNavigateToSignUp ){ EmptyView() }
+            content(viewModel: viewModel)
+            floatingButton(viewModel: viewModel)
         }
         .background(Color("yellow").ignoresSafeArea())
         .navigationBarHidden(true)
     }
     
     
-    func content(goToAuthenticate: @escaping ()  -> Void ) -> some View {
+    func content(viewModel : SplashScreenViewModel) -> some View {
         VStack{
             Spacer()
             Button(
-                action:  goToAuthenticate,
+                action:  viewModel.goToSignUp,
                 label: {
                     Image("logo")
                         .resizable()
@@ -50,13 +51,13 @@ struct SplashScreen: View {
         }
     }
     
-    func floatingButton(goToAuthenticate: @escaping ()  -> Void ) ->  some View {
+    func floatingButton(viewModel : SplashScreenViewModel) ->  some View {
         VStack {
             Spacer()
             HStack {
                 Spacer()
                 Button(
-                    action: goToAuthenticate,
+                    action: viewModel.goToSignUp,
                     label: {
                         Image("ic_arrow_right")
                             .frame(width: 56, height: 56)
@@ -66,7 +67,7 @@ struct SplashScreen: View {
                 )
                 .padding()
                 .shadow(radius: 3)
-             }
+            }
         }
     }
 }
