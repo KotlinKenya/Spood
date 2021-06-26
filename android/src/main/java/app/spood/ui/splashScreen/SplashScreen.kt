@@ -2,9 +2,7 @@ package app.spood.ui.splashScreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -12,22 +10,23 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import app.spood.R
 import app.spood.Screen
-import app.spood.ui.theme.white
-import app.spood.ui.theme.yellow
+import app.spood.theme.white
+import app.spood.theme.yellow
 
 @Preview(showBackground = true)
 @Composable
 fun SplashScreenPreview() {
-    SplashScreen(rememberNavController())
+    SplashScreen()
 }
 
 @Composable
-fun SplashScreen(navController: NavHostController) {
+fun SplashScreen(navController: NavHostController = rememberNavController()) {
     val goToAuthenticate: () -> Unit = {
         navController.navigate(Screen.SignUp.route) {
             popUpTo(navController.graph.findStartDestination().id) { inclusive = true }
@@ -54,10 +53,22 @@ fun Content(goToAuthenticate: () -> Unit, modifier: Modifier = Modifier) {
             Image(
                 painter = logo,
                 contentDescription = "Logo",
-                modifier = Modifier.clickable(onClick = goToAuthenticate)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 128.dp)
+                    .clickable(onClick = goToAuthenticate)
             )
-            Image(painter = banner, contentDescription = "Banner")
-            Image(painter = tagline, contentDescription = "Tag line")
+            Image(
+                painter = banner,
+                contentDescription = "Banner",
+            )
+            Image(
+                painter = tagline,
+                contentDescription = "Tag line",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 56.dp)
+            )
         }
     )
 }

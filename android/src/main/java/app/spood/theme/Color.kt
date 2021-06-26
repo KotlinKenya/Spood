@@ -1,4 +1,4 @@
-package app.spood.ui.theme
+package app.spood.theme
 
 import androidx.compose.ui.graphics.Color
 

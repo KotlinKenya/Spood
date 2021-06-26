@@ -1,8 +1,9 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/yellow</item>
-        <item name="colorPrimaryDark">@color/grey</item>
-        <item name="colorAccent">@color/white</item>
+    <style name="Theme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/yellow</item>
+        <item name="android:navigationBarColor">@color/yellow</item>
     </style>
+
+    <style name="Theme.Spood" />
 </resources>

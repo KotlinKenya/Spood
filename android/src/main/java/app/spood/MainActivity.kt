@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Scaffold
 import androidx.navigation.compose.rememberNavController
-import app.spood.ui.theme.SpoodTheme
+import app.spood.theme.SpoodTheme
 
 class MainActivity : ComponentActivity() {
 
