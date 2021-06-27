@@ -18,6 +18,7 @@ import app.spood.R
 import app.spood.Screen
 import app.spood.theme.white
 import app.spood.theme.yellow
+import app.spood.ui.components.Logo
 
 @Preview(showBackground = true)
 @Composable
@@ -42,28 +43,19 @@ fun SplashScreen(navController: NavHostController = rememberNavController()) {
 
 @Composable
 fun Content(goToAuthenticate: () -> Unit, modifier: Modifier = Modifier) {
-    val logo = painterResource(id = R.drawable.logo)
-    val banner = painterResource(id = R.drawable.banner)
-    val tagline = painterResource(id = R.drawable.tagline)
     Column(
         verticalArrangement = Arrangement.SpaceAround,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.fillMaxSize(),
         content = {
+            Logo(paddingX = 128, modifier = Modifier.clickable(onClick = goToAuthenticate))
+
             Image(
-                painter = logo,
-                contentDescription = "Logo",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 128.dp)
-                    .clickable(onClick = goToAuthenticate)
-            )
-            Image(
-                painter = banner,
+                painter = painterResource(id = R.drawable.banner),
                 contentDescription = "Banner",
             )
             Image(
-                painter = tagline,
+                painter = painterResource(id = R.drawable.tagline),
                 contentDescription = "Tag line",
                 modifier = Modifier
                     .fillMaxWidth()
