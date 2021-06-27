@@ -26,14 +26,14 @@ fun Header(
     Column(
         horizontalAlignment = Alignment.Start,
         modifier = Modifier
-            .padding(vertical = 32.dp)
+            .padding(vertical = 24.dp)
             .fillMaxWidth()
     ) {
         Text(
             text = title,
             color = greenDark,
             fontWeight = FontWeight.Bold,
-            style = MaterialTheme.typography.h4
+            style = MaterialTheme.typography.h5
         )
 
         Spacer(Modifier.size(4.dp))
