@@ -30,14 +30,8 @@ struct SplashScreen: View {
         VStack{
             Spacer()
             Button(
-                action:  viewModel.goToSignUp,
-                label: {
-                    Image("logo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                        .padding(.horizontal, 120)
-                }
+                action: viewModel.goToSignUp,
+                label: { Logo(paddingX: 120) }
             )
             Spacer()
             Image("banner")
