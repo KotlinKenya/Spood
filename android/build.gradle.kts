@@ -37,6 +37,7 @@ dependencies {
     implementation("androidx.compose.ui:ui:${rootProject.extra["compose_version"]}")
     implementation("androidx.compose.material:material:${rootProject.extra["compose_version"]}")
     implementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
+    implementation("com.google.accompanist:accompanist-insets:0.12.0")
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
 

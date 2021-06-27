@@ -12,18 +12,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 import app.spood.R
-import app.spood.theme.green
 
 @Preview(showBackground = true)
 @Composable
-fun Logo1Preview() {
+fun LogoPreview() {
     Logo(paddingX = 128)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun Logo2Preview() {
-    Logo(tint = green, width = 72)
 }
 
 @Composable

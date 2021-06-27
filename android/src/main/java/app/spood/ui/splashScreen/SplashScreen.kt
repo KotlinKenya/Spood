@@ -19,6 +19,8 @@ import app.spood.Screen
 import app.spood.theme.white
 import app.spood.theme.yellow
 import app.spood.ui.components.Logo
+import com.google.accompanist.insets.navigationBarsPadding
+import com.google.accompanist.insets.statusBarsPadding
 
 @Preview(showBackground = true)
 @Composable
@@ -46,23 +48,26 @@ fun Content(goToAuthenticate: () -> Unit, modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.SpaceAround,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.fillMaxSize(),
-        content = {
-            Logo(paddingX = 128, modifier = Modifier.clickable(onClick = goToAuthenticate))
+        modifier = modifier
+            .fillMaxSize()
+            .navigationBarsPadding()
+            .statusBarsPadding()
+    ) {
+        Logo(paddingX = 128, modifier = Modifier.clickable(onClick = goToAuthenticate))
 
-            Image(
-                painter = painterResource(id = R.drawable.banner),
-                contentDescription = "Banner",
-            )
-            Image(
-                painter = painterResource(id = R.drawable.tagline),
-                contentDescription = "Tag line",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 56.dp)
-            )
-        }
-    )
+        Image(
+            painter = painterResource(id = R.drawable.banner),
+            contentDescription = "Banner",
+        )
+
+        Image(
+            painter = painterResource(id = R.drawable.tagline),
+            contentDescription = "Tag line",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 56.dp)
+        )
+    }
 }
 
 @Composable
@@ -71,6 +76,7 @@ fun FloatingButton(goToAuthenticate: () -> Unit) {
     FloatingActionButton(
         backgroundColor = white,
         onClick = goToAuthenticate,
+        modifier = Modifier.navigationBarsPadding(),
         content = { Image(painter = arrowRight, contentDescription = "Arrow Right") }
     )
 }

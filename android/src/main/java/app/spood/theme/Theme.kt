@@ -5,6 +5,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import com.google.accompanist.insets.ProvideWindowInsets
 
 private val DarkColorPalette = darkColors(
     primary = yellow,
@@ -38,6 +39,7 @@ fun SpoodTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable 
         colors = colors,
         typography = Typography,
         shapes = Shapes,
-        content = content
+//        content = content
     )
+    { ProvideWindowInsets(content = content) }
 }
