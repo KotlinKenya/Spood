@@ -1,6 +1,5 @@
 package app.spood.ui.components
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -24,23 +23,22 @@ fun PrimaryActionButtonPreview() {
 
 @Composable
 fun PrimaryActionButton(text: String = "", action: () -> Unit = {}) {
-        Button(
-            onClick = { },
-            elevation = ButtonDefaults.elevation(defaultElevation = 0.dp),
-            colors = ButtonDefaults.buttonColors(
-                backgroundColor = yellow,
-                contentColor = greenDark
-            ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(84.dp)
-                .padding(vertical = 16.dp)
-                .clickable(onClick = action)
-        ) {
-            Text(
-                text = text,
-                style = MaterialTheme.typography.body1,
-                fontWeight = FontWeight.Bold
-            )
-        }
+    Button(
+        onClick = action,
+        elevation = ButtonDefaults.elevation(defaultElevation = 0.dp),
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = yellow,
+            contentColor = greenDark
+        ),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(84.dp)
+            .padding(vertical = 16.dp)
+    ) {
+        Text(
+            text = text,
+            style = MaterialTheme.typography.body1,
+            fontWeight = FontWeight.Bold
+        )
     }
+}

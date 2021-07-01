@@ -75,6 +75,13 @@
 			path = ui;
 			sourceTree = "<group>";
 		};
+		0F539D25268B91E5008C0216 /* util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		0FE1CC8E268748B800FBE3D0 /* splashScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +133,7 @@
 		7555FF7D242A565900829871 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				0F539D25268B91E5008C0216 /* util */,
 				0F4ADD0F2687419E0033BB35 /* ui */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
