@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import app.spood.R
-import app.spood.domain.usecase.SignUpUseCase
 import app.spood.screens.signUp.SignUpAction
 import app.spood.screens.signUp.SignUpState
 import app.spood.screens.signUp.SignUpStore
@@ -22,7 +21,7 @@ import app.spood.theme.greyLight
 import app.spood.ui.components.*
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
-import kotlinx.coroutines.CoroutineScope
+import org.koin.androidx.compose.get
 
 @Preview(showBackground = true)
 @Composable
@@ -33,11 +32,9 @@ fun SignUpPreview() {
 @Composable
 fun SignUp(
     navController: NavHostController,
-    store: SignUpStore = remember { SignUpStore(SignUpUseCase()) },
-    coroutineScope: CoroutineScope = rememberCoroutineScope()
+    store: SignUpStore = get()
 ) {
     val state by store.state.collectAsState(initial = SignUpState())
-    val action by store.state.collectAsState(initial = SignUpState())
 
     Scaffold(
         content = {

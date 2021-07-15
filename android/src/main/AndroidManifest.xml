@@ -3,6 +3,7 @@
     package="app.spood">
 
     <application
+        android:name=".SpoodApp"
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/Theme.Spood">

@@ -33,6 +33,7 @@ dependencies {
     implementation(project(":common"))
 
     implementation("com.google.android.material:material:${findProperty("version.material")}")
+    implementation("io.insert-koin:koin-androidx-compose:${findProperty("version.koin")}")
     implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.material:material:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling:$composeVersion")
