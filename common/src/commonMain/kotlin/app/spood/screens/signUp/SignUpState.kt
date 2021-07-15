@@ -1,5 +1,7 @@
 package app.spood.screens.signUp
 
+import app.spood.redux.State
+
 data class SignUpState(
     val fullName: String = "",
     val fullNameError: String? = null,
@@ -8,4 +10,4 @@ data class SignUpState(
     val loading: Boolean = false,
     val signUpError: Throwable? = null,
     val signedUp: Boolean = false
-)
+) : State

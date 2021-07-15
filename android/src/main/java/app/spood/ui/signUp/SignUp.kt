@@ -14,14 +14,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import app.spood.R
 import app.spood.domain.usecase.SignUpUseCase
+import app.spood.screens.signUp.SignUpAction
 import app.spood.screens.signUp.SignUpState
+import app.spood.screens.signUp.SignUpStore
 import app.spood.theme.green
 import app.spood.theme.greyLight
 import app.spood.ui.components.*
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 @Preview(showBackground = true)
 @Composable
@@ -32,10 +33,11 @@ fun SignUpPreview() {
 @Composable
 fun SignUp(
     navController: NavHostController,
-    signUpUseCase: SignUpUseCase = remember { SignUpUseCase() },
+    store: SignUpStore = remember { SignUpStore(SignUpUseCase()) },
     coroutineScope: CoroutineScope = rememberCoroutineScope()
 ) {
-    val state by signUpUseCase.state.collectAsState(initial = SignUpState())
+    val state by store.state.collectAsState(initial = SignUpState())
+    val action by store.state.collectAsState(initial = SignUpState())
 
     Scaffold(
         content = {
@@ -52,13 +54,17 @@ fun SignUp(
 
                 Header(title = "Sign Up", subTitle = "Let's do this once and for all")
 
-                Inputs(state, signUpUseCase)
+                Inputs(
+                    state = state,
+                    onChangeFullName = { store.dispatch(SignUpAction.ChangeFullName(it)) },
+                    onChangePhoneNumber = { store.dispatch(SignUpAction.ChangePhoneNumber(it)) }
+                )
 
                 ErrorMessage(state.signUpError?.localizedMessage.orEmpty())
 
                 PrimaryActionButton(
                     text = "Sign Up",
-                    action = { coroutineScope.launch { signUpUseCase.signUp() } }
+                    action = { store.dispatch(SignUpAction.InitiateSignUp) }
                 )
 
                 SecondaryActionButton(
@@ -76,7 +82,11 @@ fun SignUp(
 }
 
 @Composable
-private fun Inputs(state: SignUpState, signUpUseCase: SignUpUseCase) {
+private fun Inputs(
+    state: SignUpState,
+    onChangeFullName: (String) -> Unit,
+    onChangePhoneNumber: (String) -> Unit,
+) {
     Column(modifier = Modifier.padding(vertical = 24.dp)) {
 
         Text(
@@ -88,7 +98,7 @@ private fun Inputs(state: SignUpState, signUpUseCase: SignUpUseCase) {
 
         OutlinedTextField(
             value = state.fullName,
-            onValueChange = { signUpUseCase.fullNameChanged(it) },
+            onValueChange = { onChangeFullName(it) },
             placeholder = { Text("Enter your full name") },
             modifier = Modifier.fillMaxWidth(),
             isError = state.fullNameError != null,
@@ -97,6 +107,8 @@ private fun Inputs(state: SignUpState, signUpUseCase: SignUpUseCase) {
                 unfocusedBorderColor = greyLight
             )
         )
+
+        ErrorMessage(error = state.fullNameError.orEmpty())
 
         Spacer(Modifier.size(16.dp))
 
@@ -109,7 +121,7 @@ private fun Inputs(state: SignUpState, signUpUseCase: SignUpUseCase) {
 
         OutlinedTextField(
             value = state.phoneNumber,
-            onValueChange = { signUpUseCase.phoneNumberChanged(it) },
+            onValueChange = { onChangePhoneNumber(it) },
             placeholder = { Text("0700 000 000") },
             modifier = Modifier.fillMaxWidth(),
             isError = state.phoneNumberError != null,
@@ -118,5 +130,7 @@ private fun Inputs(state: SignUpState, signUpUseCase: SignUpUseCase) {
                 unfocusedBorderColor = greyLight
             )
         )
+
+        ErrorMessage(error = state.phoneNumberError.orEmpty())
     }
 }
