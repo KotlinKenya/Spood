@@ -16,13 +16,13 @@ class SignUpNetworkingEffect : Effect<SignUpState, SignUpAction> {
         store: Store<SignUpState, SignUpAction>
     ) {
         if (action is SignUpAction.InitiateSignUp && state.fullNameError.isNullOrBlank() && state.phoneNumberError.isNullOrBlank()) {
+            store.dispatch(SignUpAction.SetSignUpError(null))
             store.dispatch(SignUpAction.ShowSignUpLoader(true))
-            store.dispatch(SignUpAction.S(true))
             try {
                 val user = signUp(state.fullName, state.phoneNumber)
                 store.dispatch(SignUpAction.SignUpSucceeded)
             } catch (e: Exception) {
-                store.dispatch(SignUpAction.SignUpFailed(e))
+                store.dispatch(SignUpAction.SetSignUpError(e))
             } finally {
                 store.dispatch(SignUpAction.ShowSignUpLoader(false))
             }

@@ -13,5 +13,5 @@ sealed class SignUpAction : Action {
 
     object InitiateSignUp : SignUpAction()
     object SignUpSucceeded : SignUpAction()
-    data class SignUpFailed(val error: Throwable?) : SignUpAction()
+    data class SetSignUpError(val error: Throwable?) : SignUpAction()
 }

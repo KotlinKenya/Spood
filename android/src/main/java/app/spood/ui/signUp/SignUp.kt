@@ -57,21 +57,17 @@ fun SignUp(
                 Inputs(
                     state = state,
                     onChangeFullName = {
-                        scope.launch {
-                            store.dispatch(SignUpAction.ChangeFullName(it))
-                        }
+                        scope.launch { store.dispatch(SignUpAction.ChangeFullName(it)) }
                     },
                     onChangePhoneNumber = {
-                        scope.launch {
-                            store.dispatch(SignUpAction.ChangePhoneNumber(it))
-                        }
+                        scope.launch { store.dispatch(SignUpAction.ChangePhoneNumber(it)) }
                     }
                 )
 
-                ErrorMessage(state.signUpError?.localizedMessage.orEmpty())
-
                 if (state.loading) {
                     CircularProgressIndicator()
+                } else {
+                    ErrorMessage(state.signUpError?.localizedMessage.orEmpty())
                 }
 
                 PrimaryActionButton(
