@@ -21,6 +21,8 @@ import app.spood.theme.greyLight
 import app.spood.ui.components.*
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import org.koin.androidx.compose.get
 
 @Preview(showBackground = true)
@@ -32,7 +34,8 @@ fun SignUpPreview() {
 @Composable
 fun SignUp(
     navController: NavHostController,
-    store: SignUpStore = get()
+    store: SignUpStore = get(),
+    scope: CoroutineScope = rememberCoroutineScope()
 ) {
     val state by store.state.collectAsState(initial = SignUpState())
 
@@ -53,15 +56,27 @@ fun SignUp(
 
                 Inputs(
                     state = state,
-                    onChangeFullName = { store.dispatch(SignUpAction.ChangeFullName(it)) },
-                    onChangePhoneNumber = { store.dispatch(SignUpAction.ChangePhoneNumber(it)) }
+                    onChangeFullName = {
+                        scope.launch {
+                            store.dispatch(SignUpAction.ChangeFullName(it))
+                        }
+                    },
+                    onChangePhoneNumber = {
+                        scope.launch {
+                            store.dispatch(SignUpAction.ChangePhoneNumber(it))
+                        }
+                    }
                 )
 
                 ErrorMessage(state.signUpError?.localizedMessage.orEmpty())
 
+                if (state.loading) {
+                    CircularProgressIndicator()
+                }
+
                 PrimaryActionButton(
                     text = "Sign Up",
-                    action = { store.dispatch(SignUpAction.InitiateSignUp) }
+                    action = { scope.launch { store.dispatch(SignUpAction.InitiateSignUp) } }
                 )
 
                 SecondaryActionButton(

@@ -10,6 +10,7 @@ sealed class SignUpAction : Action {
     data class SetPhoneNumberError(val error: String?) : SignUpAction()
 
     data class ShowSignUpLoader(val loading: Boolean) : SignUpAction()
+
     object InitiateSignUp : SignUpAction()
     object SignUpSucceeded : SignUpAction()
     data class SignUpFailed(val error: Throwable?) : SignUpAction()
