@@ -1,6 +1,4 @@
 buildscript {
-    val compose_version by extra("1.0.0-rc01")
-
     repositories {
         gradlePluginPortal()
         google()
@@ -8,8 +6,8 @@ buildscript {
     }
 
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20")
-        classpath("com.android.tools.build:gradle:7.0.0-beta05")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${findProperty("version.kotlin")}")
+        classpath("com.android.tools.build:gradle:${findProperty("version.androidGradlePlugin")}")
     }
 }
 

@@ -3,13 +3,15 @@ package app.spood.domain.usecase
 import app.spood.screens.signUp.SignUpState
 import app.spood.util.CommonFlow
 import app.spood.util.asCommonFlow
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlin.random.Random
 
 class SignUpUseCase {
 
     private val _state = MutableStateFlow(SignUpState())
-    val state: CommonFlow<SignUpState> = _state.asCommonFlow()
+    val state: Flow<SignUpState> = _state
+    val stateIos: CommonFlow<SignUpState> = state.asCommonFlow()
 
     fun fullNameChanged(fullName: String) {
         _state.value = _state.value.copy(

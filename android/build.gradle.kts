@@ -3,6 +3,8 @@ plugins {
     id("kotlin-android")
 }
 
+val composeVersion = findProperty("version.compose") as String
+
 android {
     compileSdk = 30
 
@@ -23,24 +25,21 @@ android {
     buildFeatures { compose = true }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = rootProject.extra["compose_version"] as String
+        kotlinCompilerExtensionVersion = composeVersion
     }
 }
 
 dependencies {
     implementation(project(":common"))
 
-    implementation("com.google.android.material:material:1.4.0")
-
-    implementation("androidx.activity:activity-compose:1.3.0-rc01")
+    implementation("com.google.android.material:material:${findProperty("version.material")}")
+    implementation("androidx.compose.ui:ui:$composeVersion")
+    implementation("androidx.compose.material:material:$composeVersion")
+    implementation("androidx.compose.ui:ui-tooling:$composeVersion")
+    implementation("androidx.activity:activity-compose:1.3.0-rc02")
     implementation("androidx.navigation:navigation-compose:2.4.0-alpha04")
-    implementation("androidx.compose.ui:ui:${rootProject.extra["compose_version"]}")
-    implementation("androidx.compose.material:material:${rootProject.extra["compose_version"]}")
-    implementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
     implementation("com.google.accompanist:accompanist-insets:0.12.0")
-
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
 
-
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
 }
