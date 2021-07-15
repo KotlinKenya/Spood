@@ -1,11 +1,11 @@
 package app.spood.screens.signUp.effect
 
+import app.spood.data.network.SpoodApi
 import app.spood.domain.entity.User
 import app.spood.redux.Effect
 import app.spood.redux.Store
 import app.spood.screens.signUp.SignUpAction
 import app.spood.screens.signUp.SignUpState
-import kotlinx.coroutines.delay
 import kotlin.random.Random
 
 class SignUpNetworkingEffect : Effect<SignUpState, SignUpAction> {
@@ -30,12 +30,9 @@ class SignUpNetworkingEffect : Effect<SignUpState, SignUpAction> {
     }
 
     suspend fun signUp(fullName: String, phoneNumber: String): User {
-        // Emulate Login Stuff
-        delay(2000)
-        if (Random.nextBoolean()) {
-            return User(1, "Oliver M")
-        } else {
-            throw Exception("You already have an account. Try signing in.")
-        }
+        val api = SpoodApi()
+        val token = api.signUp(fullName, phoneNumber)
+        throw Exception(token)
+        return User(1, "Oliver M")
     }
 }

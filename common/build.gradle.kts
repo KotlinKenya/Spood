@@ -6,18 +6,21 @@ plugins {
 }
 
 kotlin {
+    android()
+
     val onPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
     val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
         if (onPhone) ::iosArm64 else ::iosX64
-
     iosTarget("ios") { binaries { framework { baseName = "common" } } }
 
-    android()
+    val ktorVersion = findProperty("version.ktor") as String
 
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-client-gson:$ktorVersion")
             }
         }
         val commonTest by getting {
@@ -27,7 +30,11 @@ kotlin {
             }
         }
 
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-android:$ktorVersion")
+            }
+        }
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
@@ -35,7 +42,11 @@ kotlin {
             }
         }
 
-        val iosMain by getting
+        val iosMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:$ktorVersion")
+            }
+        }
         val iosTest by getting
     }
 }
