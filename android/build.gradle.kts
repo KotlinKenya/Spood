@@ -6,12 +6,12 @@ plugins {
 val composeVersion = findProperty("version.compose") as String
 
 android {
-    compileSdk = 30
+    compileSdk = 31
 
     defaultConfig {
         applicationId = "app.spood.android"
         minSdk = 21
-        targetSdk = 30
+        targetSdk = 31
         versionCode = 1
         versionName = "0.0.1"
     }
@@ -38,7 +38,7 @@ dependencies {
     implementation("androidx.compose.material:material:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling:$composeVersion")
     implementation("androidx.activity:activity-compose:1.3.0-rc02")
-    implementation("androidx.navigation:navigation-compose:2.4.0-alpha04")
+    implementation("androidx.navigation:navigation-compose:2.4.0-alpha05")
     implementation("com.google.accompanist:accompanist-insets:0.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
 
