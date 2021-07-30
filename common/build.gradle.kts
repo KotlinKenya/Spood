@@ -8,9 +8,12 @@ plugins {
 kotlin {
     android()
 
-    val onPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
     val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
-        if (onPhone) ::iosArm64 else ::iosX64
+        if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
+            ::iosArm64
+        else
+            ::iosX64
+
     iosTarget("ios") { binaries { framework { baseName = "common" } } }
 
     val ktorVersion = findProperty("version.ktor") as String
