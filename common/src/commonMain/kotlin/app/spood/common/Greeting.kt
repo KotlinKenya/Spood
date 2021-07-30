@@ -1,4 +1,4 @@
-package app.spood
+package app.spood.common
 
 class Greeting {
     fun greeting(): String {

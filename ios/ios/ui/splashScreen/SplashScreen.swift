@@ -9,41 +9,49 @@ struct SplashScreen_Previews: PreviewProvider {
 
 struct SplashScreen: View {
     
-    @State private var clickedSignUpLink = false
+    @StateObject var viewModel : SplashScreenViewModel
+    
+    init(viewModel: SplashScreenViewModel = .init()) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
-        
-        let authenticate: () -> Void = { self.clickedSignUpLink = true }
-        
         ZStack{
-            NavigationLink( destination: SignUp(), isActive: $clickedSignUpLink ){ EmptyView() }
-            content( goToAuthenticate: authenticate)
-            floatingButton( goToAuthenticate: authenticate)
+            NavigationLink( destination: SignUp(), isActive: $viewModel.shouldNavigateToSignUp ){ EmptyView() }
+            content(viewModel: viewModel)
+            floatingButton(viewModel: viewModel)
         }
-        .background(Color("yellow"))
+        .background(Color("yellow").ignoresSafeArea())
         .navigationBarHidden(true)
     }
     
     
-    func content(goToAuthenticate: @escaping ()  -> Void ) -> some View {
+    func content(viewModel : SplashScreenViewModel) -> some View {
         VStack{
             Spacer()
-            Button( action:  goToAuthenticate, label: { Image("logo") } )
+            Button(
+                action: viewModel.goToSignUp,
+                label: { Logo(paddingX: 120) }
+            )
             Spacer()
             Image("banner")
             Spacer()
             Image("tagline")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .padding(.horizontal, 50.0)
             Spacer()
         }
     }
     
-    func floatingButton(goToAuthenticate: @escaping ()  -> Void ) ->  some View {
+    func floatingButton(viewModel : SplashScreenViewModel) ->  some View {
         VStack {
             Spacer()
             HStack {
                 Spacer()
                 Button(
-                    action: goToAuthenticate,
+                    action: viewModel.goToSignUp,
                     label: {
                         Image("ic_arrow_right")
                             .frame(width: 56, height: 56)
@@ -52,7 +60,7 @@ struct SplashScreen: View {
                     }
                 )
                 .padding()
-                .shadow(color: .black.opacity(0.3), radius: 3, x: 3, y: 3)
+                .shadow(radius: 3)
             }
         }
     }

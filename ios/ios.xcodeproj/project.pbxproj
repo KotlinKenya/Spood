@@ -12,6 +12,13 @@
 		0F6519B02686A756000CE541 /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6519AF2686A756000CE541 /* Resources.xcassets */; };
 		0FE1CC912687493500FBE3D0 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CC902687493500FBE3D0 /* SignUp.swift */; };
 		0FE1CC9326874B6F00FBE3D0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CC9226874B6F00FBE3D0 /* SignUpViewModel.swift */; };
+		0FE1CCB026878EE400FBE3D0 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CCAF26878EE400FBE3D0 /* SplashScreenViewModel.swift */; };
+		0FE1CCB32687DAE200FBE3D0 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CCB22687DAE200FBE3D0 /* Logo.swift */; };
+		0FE1CCB52687E93E00FBE3D0 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CCB42687E93E00FBE3D0 /* Header.swift */; };
+		0FE1CCB72687EEBC00FBE3D0 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CCB62687EEBC00FBE3D0 /* InputField.swift */; };
+		0FE1CCB92688049800FBE3D0 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CCB82688049800FBE3D0 /* Error.swift */; };
+		0FE1CCBB26881B9E00FBE3D0 /* PrimaryActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CCBA26881B9E00FBE3D0 /* PrimaryActionButton.swift */; };
+		0FE1CCBD26881EBB00FBE3D0 /* SecondaryActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CCBC26881EBB00FBE3D0 /* SecondaryActionButton.swift */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +41,13 @@
 		0F6519AF2686A756000CE541 /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		0FE1CC902687493500FBE3D0 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		0FE1CC9226874B6F00FBE3D0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		0FE1CCAF26878EE400FBE3D0 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
+		0FE1CCB22687DAE200FBE3D0 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		0FE1CCB42687E93E00FBE3D0 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		0FE1CCB62687EEBC00FBE3D0 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		0FE1CCB82688049800FBE3D0 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		0FE1CCBA26881B9E00FBE3D0 /* PrimaryActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryActionButton.swift; sourceTree = "<group>"; };
+		0FE1CCBC26881EBB00FBE3D0 /* SecondaryActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryActionButton.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,16 +68,25 @@
 		0F4ADD0F2687419E0033BB35 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				0FE1CCB12687DAAE00FBE3D0 /* components */,
 				0FE1CC8F268748F500FBE3D0 /* signUp */,
 				0FE1CC8E268748B800FBE3D0 /* splashScreen */,
 			);
 			path = ui;
 			sourceTree = "<group>";
 		};
+		0F539D25268B91E5008C0216 /* util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		0FE1CC8E268748B800FBE3D0 /* splashScreen */ = {
 			isa = PBXGroup;
 			children = (
 				0F4ADD10268743650033BB35 /* SplashScreen.swift */,
+				0FE1CCAF26878EE400FBE3D0 /* SplashScreenViewModel.swift */,
 			);
 			path = splashScreen;
 			sourceTree = "<group>";
@@ -75,6 +98,19 @@
 				0FE1CC9226874B6F00FBE3D0 /* SignUpViewModel.swift */,
 			);
 			path = signUp;
+			sourceTree = "<group>";
+		};
+		0FE1CCB12687DAAE00FBE3D0 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				0FE1CCB22687DAE200FBE3D0 /* Logo.swift */,
+				0FE1CCB42687E93E00FBE3D0 /* Header.swift */,
+				0FE1CCB62687EEBC00FBE3D0 /* InputField.swift */,
+				0FE1CCB82688049800FBE3D0 /* Error.swift */,
+				0FE1CCBA26881B9E00FBE3D0 /* PrimaryActionButton.swift */,
+				0FE1CCBC26881EBB00FBE3D0 /* SecondaryActionButton.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 		7555FF72242A565900829871 = {
@@ -97,6 +133,7 @@
 		7555FF7D242A565900829871 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				0F539D25268B91E5008C0216 /* util */,
 				0F4ADD0F2687419E0033BB35 /* ui */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
@@ -205,11 +242,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE1CCB52687E93E00FBE3D0 /* Header.swift in Sources */,
 				0F4ADD11268743650033BB35 /* SplashScreen.swift in Sources */,
+				0FE1CCB72687EEBC00FBE3D0 /* InputField.swift in Sources */,
+				0FE1CCBB26881B9E00FBE3D0 /* PrimaryActionButton.swift in Sources */,
+				0FE1CCBD26881EBB00FBE3D0 /* SecondaryActionButton.swift in Sources */,
+				0FE1CCB32687DAE200FBE3D0 /* Logo.swift in Sources */,
 				0FE1CC912687493500FBE3D0 /* SignUp.swift in Sources */,
 				0FE1CC9326874B6F00FBE3D0 /* SignUpViewModel.swift in Sources */,
 				0F4ADD0E26873FCB0033BB35 /* SpoodNavigation.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				0FE1CCB92688049800FBE3D0 /* Error.swift in Sources */,
+				0FE1CCB026878EE400FBE3D0 /* SplashScreenViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
