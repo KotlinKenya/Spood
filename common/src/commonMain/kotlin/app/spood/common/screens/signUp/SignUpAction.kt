@@ -1,6 +1,6 @@
-package app.spood.screens.signUp
+package app.spood.common.screens.signUp
 
-import app.spood.redux.Action
+import app.spood.common.redux.Action
 
 sealed class SignUpAction : Action {
     data class ChangeFullName(val fullName: String) : SignUpAction()

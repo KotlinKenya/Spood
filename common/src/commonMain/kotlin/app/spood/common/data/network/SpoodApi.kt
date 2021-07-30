@@ -1,4 +1,4 @@
-package app.spood.data.network
+package app.spood.common.data.network
 
 import io.ktor.client.*
 import io.ktor.client.features.*

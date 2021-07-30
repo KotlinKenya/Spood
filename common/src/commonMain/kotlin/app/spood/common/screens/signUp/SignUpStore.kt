@@ -1,8 +1,8 @@
-package app.spood.screens.signUp
+package app.spood.common.screens.signUp
 
-import app.spood.redux.Effect
-import app.spood.redux.Store
-import app.spood.util.asCommonFlow
+import app.spood.common.redux.Effect
+import app.spood.common.redux.Store
+import app.spood.common.util.asCommonFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 
 class SignUpStore(

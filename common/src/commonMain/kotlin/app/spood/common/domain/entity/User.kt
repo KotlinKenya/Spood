@@ -1,4 +1,4 @@
-package app.spood.domain.entity
+package app.spood.common.domain.entity
 
 data class User(
     val id: Int,

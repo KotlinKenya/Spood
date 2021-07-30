@@ -1,6 +1,6 @@
-package app.spood.screens.signUp
+package app.spood.common.screens.signUp
 
-import app.spood.redux.Reducer
+import app.spood.common.redux.Reducer
 
 /**
  * Handle any [SignUpAction] and create a new [SignUpState] accordingly

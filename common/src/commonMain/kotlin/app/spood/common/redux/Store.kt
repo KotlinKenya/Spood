@@ -1,6 +1,6 @@
-package app.spood.redux
+package app.spood.common.redux
 
-import app.spood.util.CommonFlow
+import app.spood.common.util.CommonFlow
 import kotlinx.coroutines.flow.StateFlow
 
 /**

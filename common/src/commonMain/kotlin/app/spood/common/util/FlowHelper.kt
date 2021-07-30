@@ -1,4 +1,4 @@
-package app.spood.util
+package app.spood.common.util
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect

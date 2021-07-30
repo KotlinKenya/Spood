@@ -1,10 +1,8 @@
 package app.spood
 
 import android.app.Application
-import app.spood.screens.signUp.SignUpReducer
-import app.spood.screens.signUp.SignUpStore
-import app.spood.screens.signUp.effect.SignUpNetworkingEffect
-import app.spood.screens.signUp.effect.SignUpValidationEffect
+import app.spood.common.screens.signUp.*
+import app.spood.common.screens.signUp.effect.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.dsl.module

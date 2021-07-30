@@ -1,4 +1,4 @@
-package app.spood.redux
+package app.spood.common.redux
 
 /**
  * Modifies a [State] using a given [Action]

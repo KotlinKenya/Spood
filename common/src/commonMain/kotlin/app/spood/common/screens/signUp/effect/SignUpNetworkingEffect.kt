@@ -1,11 +1,11 @@
-package app.spood.screens.signUp.effect
+package app.spood.common.screens.signUp.effect
 
-import app.spood.data.network.SpoodApi
-import app.spood.domain.entity.User
-import app.spood.redux.Effect
-import app.spood.redux.Store
-import app.spood.screens.signUp.SignUpAction
-import app.spood.screens.signUp.SignUpState
+import app.spood.common.data.network.SpoodApi
+import app.spood.common.domain.entity.User
+import app.spood.common.redux.Effect
+import app.spood.common.redux.Store
+import app.spood.common.screens.signUp.SignUpAction
+import app.spood.common.screens.signUp.SignUpState
 import kotlin.random.Random
 
 class SignUpNetworkingEffect : Effect<SignUpState, SignUpAction> {

@@ -1,4 +1,4 @@
-package app.spood.redux
+package app.spood.common.redux
 
 /**
  * Defines any action (intent) taken on a given screen

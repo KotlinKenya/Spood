@@ -1,4 +1,4 @@
-package app.spood.redux
+package app.spood.common.redux
 
 /**
  * Processes side-effects of an [Action]

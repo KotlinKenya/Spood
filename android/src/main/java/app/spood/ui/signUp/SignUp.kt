@@ -13,9 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import app.spood.R
-import app.spood.screens.signUp.SignUpAction
-import app.spood.screens.signUp.SignUpState
-import app.spood.screens.signUp.SignUpStore
+import app.spood.common.screens.signUp.*
 import app.spood.theme.green
 import app.spood.theme.greyLight
 import app.spood.ui.components.*

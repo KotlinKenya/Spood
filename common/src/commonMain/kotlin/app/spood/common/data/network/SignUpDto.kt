@@ -1,4 +1,4 @@
-package app.spood.data.network
+package app.spood.common.data.network
 
 import com.google.gson.annotations.SerializedName
 

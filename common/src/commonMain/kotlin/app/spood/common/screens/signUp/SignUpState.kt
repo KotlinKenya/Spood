@@ -1,6 +1,6 @@
-package app.spood.screens.signUp
+package app.spood.common.screens.signUp
 
-import app.spood.redux.State
+import app.spood.common.redux.State
 
 data class SignUpState(
     val fullName: String = "",

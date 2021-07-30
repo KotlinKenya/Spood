@@ -1,9 +1,9 @@
-package app.spood.screens.signUp.effect
+package app.spood.common.screens.signUp.effect
 
-import app.spood.redux.Effect
-import app.spood.redux.Store
-import app.spood.screens.signUp.SignUpAction
-import app.spood.screens.signUp.SignUpState
+import app.spood.common.redux.Effect
+import app.spood.common.redux.Store
+import app.spood.common.screens.signUp.SignUpAction
+import app.spood.common.screens.signUp.SignUpState
 
 class SignUpValidationEffect : Effect<SignUpState, SignUpAction> {
 
