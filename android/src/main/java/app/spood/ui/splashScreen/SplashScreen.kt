@@ -31,9 +31,7 @@ fun SplashScreenPreview() {
 @Composable
 fun SplashScreen(navController: NavHostController = rememberNavController()) {
     val goToAuthenticate: () -> Unit = {
-        navController.navigate(Screen.SignUp.route) {
-            popUpTo(navController.graph.findStartDestination().id) { inclusive = true }
-        }
+        navController.navigate(Screen.SignUp.route)
     }
 
     Scaffold(
